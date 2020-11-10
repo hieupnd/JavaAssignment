@@ -1,0 +1,5 @@
+Profile{username=phanduchieu, password=123, coachId=234, coachName=hieu, email=hieu@gmail.com, mobilePhone=5342235}
+Profile{username=phannguyenduchieu, password=123, coachId=fd43, coachName=duc hieu, email=hieupnd@gmail.com, mobilePhone=324535}
+
+//lưu ý toàn bộ profile trong file txt đều phải viết theo dạng này
+
