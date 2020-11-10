@@ -16,7 +16,7 @@ public class Assignment {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //chi da o day
+        // chi da o day
         Scanner sn = new Scanner(System.in);
         System.out.println("Username: ");
         String username = sn.nextLine();
