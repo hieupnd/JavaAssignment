@@ -58,7 +58,7 @@ class Profile {
                 fin.close();
                 fout=new FileOutputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
                 // Modifying Text file
-                s="Doc lap-tu do-hanh phuc";
+                s="Doc lap-tu do-hanh phuc sighskdfghksgdfsgsdfg";
                 b=s.getBytes();
                 fout.write(b);
                 fout.close();

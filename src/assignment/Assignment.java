@@ -28,6 +28,7 @@ public class Assignment {
         //tao mot doi tuong rong de dung cac ham trong Profile.java
         Profile pro = new Profile();
         QuestionBank qs = new QuestionBank();
+        pro.file();
         if (info.checkUserName()){
             if (info.checkPassword()){
                 System.out.println("Press 1 to change profile information");
