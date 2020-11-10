@@ -34,20 +34,20 @@ class Profile {
         try
         {
             // Creating new Text file
-               File file = new File("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+               File file = new File("File\\Profile.dat");
 //              if (!file.exists())
 //                {
 //                file.createNewFile();
 //                System.out.println("File created Successfully.");
 //                }
-                FileOutputStream fout=new FileOutputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+                FileOutputStream fout=new FileOutputStream("File\\Profile.dat");
                 // Writing to new Text file
                 String s="Cong hoa xa hoi chu nghia Viet Nam";
                 byte b[]=s.getBytes();
                 fout.write(b);
                 fout.close();
                 System.out.println("Writing Complete!");
-                FileInputStream fin = new FileInputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+                FileInputStream fin = new FileInputStream("File\\Profile.dat");
                 
                 //Reading from Text file
                 int i;
@@ -56,14 +56,14 @@ class Profile {
                     System.out.print((char)i);
                 }
                 fin.close();
-                fout=new FileOutputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+                fout=new FileOutputStream("File\\Profile.dat");
                 // Modifying Text file
                 s="Doc lap-tu do-hanh phuc sighskdfghksgdfsgsdfg";
                 b=s.getBytes();
                 fout.write(b);
                 fout.close();
                 System.out.println("\n Modification Complete!");
-                fin = new FileInputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+                fin = new FileInputStream("File\\Profile.dat");
                 //Reading from Text file
                 while((i=fin.read())!=-1)
                 {
@@ -79,8 +79,8 @@ class Profile {
         }   
     public void WriteToFile(String s){
         try{
-            File file = new File("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
-            FileOutputStream fout=new FileOutputStream("C:\\Users\\Phan Duc Hieu\\Desktop\\Assignment\\src\\File\\Profile.dat");
+            File file = new File("File\\Profile.dat");
+            FileOutputStream fout=new FileOutputStream("File\\Profile.dat");
         }
         catch (IOException e)
         {
