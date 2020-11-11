@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 //hello
+//thang da o day
 package assignment;
 import java.util.Scanner;
 /**
