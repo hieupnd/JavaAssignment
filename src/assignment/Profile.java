@@ -24,6 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -161,6 +162,8 @@ class Profile {
     }
 
     public void setCoachId(String coachId) {
+        Random rd = new Random();   
+        coachId = "MSD"+rd.nextInt(9999999);
         this.coachId = coachId;
     }
 
