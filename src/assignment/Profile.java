@@ -99,11 +99,11 @@ class Profile {
         System.out.println("done");
     }
     
-    public String readToFile() {
+    public String readToFile(String filename) {
         String fileContent = "";
 
         try {
-            FileReader file = new FileReader("Profile.dat");
+            FileReader file = new FileReader(filename);
             BufferedReader fileStream = new BufferedReader(file);
 
             String temp = fileStream.readLine();

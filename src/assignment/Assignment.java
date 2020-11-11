@@ -35,7 +35,7 @@ public class Assignment {
         //Thay đổi toàn bộ ký tự g trong file thành số 1
         pro.modifyFile("Profile.dat", "g", "1");
         
-        System.out.println(pro.readToFile());
+        System.out.println(pro.readToFile("Profile.dat"));
         
         if (info.checkUserName()){
             if (info.checkPassword()){
