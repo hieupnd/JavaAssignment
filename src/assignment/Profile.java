@@ -96,7 +96,7 @@ class Profile {
                 e.printStackTrace();
             }
         }
-        System.out.println("done");
+        //System.out.println("done");
     }
     
     public String readToFile(String filename) {
@@ -200,14 +200,7 @@ class Profile {
         return checkPassword;
     }
 
-    void changeUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void changePassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     void generateNewId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

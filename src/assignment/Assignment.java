@@ -62,25 +62,27 @@ public class Assignment {
                         //tao ra cac bien moi co gia tri bang gia tri nguoi dung nhap vao
                         //de luu tru new username
                         //cac truong hop khac cung tuong tu
-                        pro.changeUsername();
+                        String newUsername = sn.nextLine();
+                        pro.setUsername(newUsername);
+                        
                     }
                     else if (check.equals("2")){//tinh nang them cau hoi vao question bank
                     
                     qs.addProblem();
                     System.out.println("Input problem 's ID: ");
-                    String id = sn.next();
+                    String id = sn.nextLine();
                     System.out.println("Input Date: ");
-                    String date = sn.next();
+                    String date = sn.nextLine();
                     System.out.println("Input Name: ");
-                    String name = sn.next();
+                    String name = sn.nextLine();
                     System.out.println("Input short description: ");
-                    String des = sn.next();
+                    String des = sn.nextLine();
                     System.out.println("Input Markweight: ");
-                    String markw = sn.next();
+                    String markw = sn.nextLine();
                     System.out.println("Input Category: ");
-                    String cate = sn.next();
+                    String cate = sn.nextLine();
                     System.out.println("Input Author: ");
-                    String aut = sn.next();
+                    String aut = sn.nextLine();
                 
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
