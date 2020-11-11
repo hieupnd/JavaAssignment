@@ -99,7 +99,29 @@ class Profile {
         System.out.println("done");
     }
     
-    
+    public String readToFile() {
+        String fileContent = "";
+
+        try {
+            FileReader file = new FileReader("Profile.dat");
+            BufferedReader fileStream = new BufferedReader(file);
+
+            String temp = fileStream.readLine();
+            while (temp != null) {
+                fileContent = fileContent + " " + temp;
+                temp = fileStream.readLine();
+
+            }
+            fileStream.close();
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("No file was read");
+        } catch (IOException e) {
+            System.out.println("There was a problem reading the file");
+        }
+        return fileContent;
+    }
     
     public Profile(String username, String password) {
         //username va password duoc nhap boi nguoi dung trong main
