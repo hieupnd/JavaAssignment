@@ -22,6 +22,17 @@ public class Contest {
     public Contest() {
     }
 
+    public Contest(String contestId, String Date, String Author, String Question1, String Question2, String Question3, String Question4, String Question5) {
+        this.contestId = contestId;
+        this.Date = Date;
+        this.Author = Author;
+        this.Question1 = Question1;
+        this.Question2 = Question2;
+        this.Question3 = Question3;
+        this.Question4 = Question4;
+        this.Question5 = Question5;
+    }
+    
     public String getContestId() {
         return contestId;
     }
