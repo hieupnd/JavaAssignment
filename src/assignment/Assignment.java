@@ -64,13 +64,37 @@ public class Assignment {
                         //cac truong hop khac cung tuong tu
                         pro.changeUsername();
                     }
-                    else if (check.equals("2")){
-                        pro.changePassword();
-                    }
-                    else if (check.equals("3")){
-                        //luu y su dung ham tao id ngau nhien trong profile.java
-                        pro.generateNewId();
-                    }
+                    else if (check.equals("2")){//tinh nang them cau hoi vao question bank
+                    
+                    qs.addProblem();
+                    System.out.println("Input problem 's ID: ");
+                    String id = sn.next();
+                    System.out.println("Input Date: ");
+                    String date = sn.next();
+                    System.out.println("Input Name: ");
+                    String name = sn.next();
+                    System.out.println("Input short description: ");
+                    String des = sn.next();
+                    System.out.println("Input Markweight: ");
+                    String markw = sn.next();
+                    System.out.println("Input Category: ");
+                    String cate = sn.next();
+                    System.out.println("Input Author: ");
+                    String aut = sn.next();
+                
+                }
+                else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
+                    qs.updateProblem();
+                    System.out.println("Input Contest 's ID: ");
+                    String id = sn.next();
+                    System.out.println("Input Date: ");
+                    String date = sn.next();
+                    System.out.println("Input Author: ");
+                    String aut = sn.next();
+                    System.out.println("Input Total mark: ");
+                    String total = sn.next();
+                    
+                }
                     else if (check.equals("4")){
                         pro.changeName();
                     }
