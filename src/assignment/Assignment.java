@@ -34,6 +34,9 @@ public class Assignment {
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
         pro.modifyFile("Profile.dat", "g", "1");
+        
+        System.out.println(pro.readToFile());
+        
         if (info.checkUserName()){
             if (info.checkPassword()){
                 System.out.println("Press 1 to change profile information");
