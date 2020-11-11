@@ -6,6 +6,7 @@
 //hello
 //thang da o day
 package assignment;
+import java.io.IOException;
 import java.util.Scanner;
 /**
  *
@@ -16,7 +17,7 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         // TODO code application logic here
         // chi da o day
         Scanner sn = new Scanner(System.in);
@@ -30,7 +31,9 @@ public class Assignment {
         //tao mot doi tuong rong de dung cac ham trong Profile.java
         Profile pro = new Profile();
         QuestionBank qs = new QuestionBank();
-        pro.file();
+        //gọi thử hàm sửa nội dung file trong class Profile
+        //Thay đổi toàn bộ ký tự g trong file thành số 1
+        pro.modifyFile("Profile.dat", "g", "1");
         if (info.checkUserName()){
             if (info.checkPassword()){
                 System.out.println("Press 1 to change profile information");

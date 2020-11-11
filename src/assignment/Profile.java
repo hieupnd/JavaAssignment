@@ -5,14 +5,25 @@
  */
 package assignment;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -29,66 +40,63 @@ class Profile {
     public String profileInfo="";
     public boolean checkUsername;
     public boolean checkPassword;
-    public void file()
-    {
+    
+    
+   
+    public void modifyFile(String filePath, String oldString, String newString){
+        File fileToBeModified = new File(filePath);
+         
+        String oldContent = "";
+         
+        BufferedReader reader = null;
+         
+        FileWriter writer = null;
+         
         try
         {
-            // Creating new Text file
-               File file = new File("Profile.dat");
-//              if (!file.exists())
-//                {
-//                file.createNewFile();
-//                System.out.println("File created Successfully.");
-//                }
-                FileOutputStream fout=new FileOutputStream("Profile.dat");
-                // Writing to new Text file
-                String s="Cong hoa xa hoi chu nghia Viet Nam";
-                byte b[]=s.getBytes();
-                fout.write(b);
-                fout.close();
-                System.out.println("Writing Complete!");
-                FileInputStream fin = new FileInputStream("Profile.dat");
-                
-                //Reading from Text file
-                int i;
-                while((i=fin.read())!=-1)
-                {
-                    System.out.print((char)i);
-                }
-                fin.close();
-                fout=new FileOutputStream("Profile.dat");
-                // Modifying Text file
-                s="Doc lap-tu do-hanh phuc sighskdfghksgdfsgsdfg";
-                b=s.getBytes();
-                fout.write(b);
-                fout.close();
-                System.out.println("\n Modification Complete!");
-                fin = new FileInputStream("Profile.dat");
-                //Reading from Text file
-                while((i=fin.read())!=-1)
-                {
-                System.out.print((char)i);
-                }
-                fin.close();
-                }
-                    
-                catch (IOException e)
-                {
-                    System.out.println("I/O Exception occurred.");
-                }
-        }   
-    public void WriteToFile(String s){
-        try{
-            File file = new File("Profile.dat");
-            FileOutputStream fout=new FileOutputStream("Profile.dat");
+            reader = new BufferedReader(new FileReader(fileToBeModified));
+             
+            //Reading all the lines of input text file into oldContent
+             
+            String line = reader.readLine();
+             
+            while (line != null) 
+            {
+                oldContent = oldContent + line + System.lineSeparator();
+                 
+                line = reader.readLine();
+            }
+             
+            //Replacing oldString with newString in the oldContent
+             
+            String newContent = oldContent.replaceAll(oldString, newString);
+             
+            //Rewriting the input text file with newContent
+             
+            writer = new FileWriter(fileToBeModified);
+             
+            writer.write(newContent);
         }
         catch (IOException e)
         {
-            System.out.println("I/O exception");
+            e.printStackTrace();
         }
-    }
-    public void ModifyFile(){
-        
+        finally
+        {
+            try
+            {
+                //Closing the resources
+                 
+                reader.close();
+                 
+                writer.close();
+            } 
+            catch (IOException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("done");
     }
     
     
