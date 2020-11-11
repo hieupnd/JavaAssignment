@@ -84,8 +84,8 @@ public class Assignment {
                     
                 }
                 else if (check.equals("2")){//tinh nang them cau hoi vao question bank
-                    
-                    qs.addProblem();
+                    addProblem ap = new addProblem();
+                    ap.addProblem();
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
                 

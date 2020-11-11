@@ -5,6 +5,14 @@
  */
 package assignment;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author Phan Duc Hieu
@@ -101,9 +109,60 @@ class QuestionBank {
     public String toString() {
         return "QuestionBank{" + "problemId=" + problemId + ", generateDate=" + generateDate + ", problemName=" + problemName + ", shortDescription=" + shortDescription + ", fullDescription=" + fullDescription + ", markWeight=" + markWeight + ", category=" + category + ", author=" + author + '}';
     }
+}
 
+class addProblem{
     void addProblem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Scanner input = new Scanner(System.in);
+        System.out.println("ADD NEW PROBLEM");
+        
+        Random rand = new Random();
+        String id = "ID" + rand.nextInt(100000);
+        
+        Calendar cal = Calendar.getInstance();
+        int day = cal.get(Calendar.DATE);
+        int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
+        String date = month + " " + day + " " + year;
+        
+        System.out.print("Problem name: ");
+        String name = input.nextLine();
+        
+        System.out.println("Short description: ");
+        String shortDescription = input.nextLine();
+        
+        System.out.println("Full decription: ");
+        String fullDescription = input.nextLine();
+        
+        System.out.print("Mark weight: ");
+        int markWeight = Integer.parseInt(input.nextLine());
+        
+        System.out.println("Category: ");
+        String category = input.nextLine();
+        
+        System.out.println("Author: ");
+        String author = input.nextLine();
+        
+        QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
+        
+        try{
+            FileReader fr = new FileReader("Questionbank.dat");
+            BufferedReader br = new BufferedReader(fr);
+            
+            String myString = "";
+            String str;
+            while((str = br.readLine()) != null){
+                myString = myString + str + "\n";
+            }
+            br.close();
+            
+            PrintWriter pw = new PrintWriter("Questionbank.dat");
+            myString = myString + newQuestion;
+            pw.println(myString);
+            pw.close();           
+        } 
+        catch(IOException ex) {
+            System.out.println("ERROR!");            
+        }
     }
-    
 }
