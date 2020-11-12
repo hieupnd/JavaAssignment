@@ -27,8 +27,12 @@ public class ProfileDAO {
     // kiem tra username va password
     public boolean checkInfor(Profile info) throws IOException {
         for (String line : seperateLines()) {
-            String[] parameter = line.split(", ", 3);
-            if (parameter[0].equals(info.getUsername()) || parameter[1].equals(info.getPassword())) {
+            String[] parameter = line.split(", ");
+            if (parameter[0].equals(info.getUsername()) && parameter[1].equals(info.getPassword())) {
+                info.setCoachId(parameter[2]);
+                info.setCoachName(parameter[3]);
+                info.setEmail(parameter[4]);
+                info.setMobilePhone(parameter[5]);
                 return true;
             }
         }
