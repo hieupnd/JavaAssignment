@@ -18,6 +18,8 @@ import java.io.PrintWriter;
  * @author Phan Duc Hieu
  */
 public class FileDAO {
+    
+    // Chỉnh sửa
     public void modifyFile(String filePath, String oldString, String newString){
         File fileToBeModified = new File(filePath);
          
@@ -74,6 +76,7 @@ public class FileDAO {
         //System.out.println("done");
     }
     
+    // Đọc File
     public String readToFile(String filename) {
         String fileContent = "";
 
@@ -97,6 +100,8 @@ public class FileDAO {
         }
         return fileContent;
     }
+    
+    // Thêm đối tượng
     public void AddToFile(String filename, String content){
         try{
             FileReader fr = new FileReader(filename);

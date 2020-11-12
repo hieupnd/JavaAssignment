@@ -8,6 +8,7 @@
 
 package assignment;
 import dao.FileDAO;
+import dao.ProfileDAO;
 import model.*;
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         // TODO code application logic here
         // chi da o day
         Scanner sn = new Scanner(System.in);
@@ -33,16 +34,17 @@ public class Main {
         Profile info = new Profile(username, password);
         //tao mot doi tuong rong de dung cac ham trong Profile.java
         Profile pro = new Profile();
-        FileDAO dao = new FileDAO();
+        FileDAO fileDao = new FileDAO();
+        ProfileDAO proDAO = new ProfileDAO();
         QuestionBank qs = new QuestionBank();
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
-        dao.modifyFile("Profile.dat", "1", "g");
-        dao.AddToFile("QuestionBank.dat", "pham thai ha");
-        System.out.println(dao.readToFile("Profile.dat"));
-        System.out.println(dao.readToFile("Questionbank.dat"));
-        if (info.checkUserName()){
-            if (info.checkPassword()){
+       
+        fileDao.AddToFile("QuestionBank.dat", "pham thai ha");
+        System.out.println(fileDao.readToFile("Profile.dat"));
+        System.out.println(fileDao.readToFile("Questionbank.dat"));
+        
+        if (proDAO.checkInfor(info)){
                 System.out.println("Press 1 to change profile information");
                 System.out.println("Press 2 to add new problem");
                 System.out.println("Press 3 to Update information");
@@ -133,7 +135,7 @@ public class Main {
                 //else if (check.equals("8")){
                 
                 //}
-            }
+            
         }
     }
 }
