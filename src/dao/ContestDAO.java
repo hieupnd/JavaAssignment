@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package dao;
-
+import model.Profile;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,23 +12,21 @@ import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import model.Profile;
-
 /**
  *
  * @author Phan Duc Hieu
  */
 public class ContestDAO {
-    public void contest(){
+    public void contest(String coachName){
         Random rand = new Random();
-        Profile pro = new Profile();
+        
         String contestId = "ID" + rand.nextInt(100000);
         Calendar cal = Calendar.getInstance();
         int day = cal.get(Calendar.DATE);
         int month = cal.get(Calendar.MONTH)+1;
         int year = cal.get(Calendar.YEAR);
         String dateOfCreation = day + "/" + month + "/" + year;
-        String author = pro.getUsername();
+        String author = coachName;
         String contest = "";
         
         try{

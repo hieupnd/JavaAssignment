@@ -10,6 +10,7 @@ package assignment;
 import dao.ContestDAO;
 import dao.FileDAO;
 import dao.ProfileDAO;
+import dao.QuestionBankDAO;
 import model.*;
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,6 +39,7 @@ public class Main {
         FileDAO fileDao = new FileDAO();
         ProfileDAO proDAO = new ProfileDAO();
         QuestionBank qs = new QuestionBank();
+        QuestionBankDAO queDao = new QuestionBankDAO();
         ContestDAO conDao = new ContestDAO();
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
@@ -48,6 +50,7 @@ public class Main {
         //System.out.println(fileDao.readToFile("Questionbank.dat"));
         
         if (proDAO.checkInfor(info)){
+                System.out.println("Login succesfully");
                 System.out.println("Press 1 to change profile information");
                 System.out.println("Press 2 to add new problem");
                 System.out.println("Press 3 to View all problems");
@@ -74,53 +77,39 @@ public class Main {
                         info.setPassword(newPassword);
                         System.out.println("Change successfully");
                     }
-                    else if (check.equals("2")){
+                    else if (check1.equals("2")){
                         info.setCoachId();
                         System.out.println("New id: " + info.getCoachId());
                     }
-                    else if (check.equals("3")){
+                    else if (check1.equals("3")){
                         System.out.println("Input new name: ");
                         String newName = sn.nextLine();
                         info.setCoachName(newName);
                         System.out.println("Change successfully");
                     }
-                    else if (check.equals("4")){
+                    else if (check1.equals("4")){
                         System.out.println("Input new email: ");
                         String newEmail = sn.nextLine();
                         info.setEmail(newEmail);
                         System.out.println("Change successfully");
                     }
-                    else if (check.equals("5")){
+                    else if (check1.equals("5")){
                         System.out.println("Input new mobile phone: ");
                         String newMobilePhone = sn.nextLine();
                         info.setMobilePhone(newMobilePhone);
                         System.out.println("Change successfully");
                     }
+                }
                 else if (check.equals("2")){
-                        qs.setProblemId();
-                        System.out.println("id of problem:" + qs.getProblemId());
-                        System.out.println("Input Name of problem: ");
-                        String name = sn.nextLine();
-                        qs.setProblemName(name);
-                        System.out.println("Input short description: ");
-                        String des = sn.nextLine();
-                        qs.setShortDescription(des);
-                        System.out.println("Input full description: ");
-                        String fullDes = sn.nextLine();
-                        qs.setFullDescription(fullDes);
-                        System.out.println("Input Markweight: ");
-                        double markWeight = sn.nextDouble();
-                        qs.setMarkWeight(markWeight);
-                        System.out.println("Input Category: ");
-                        String category = sn.nextLine();
-                        qs.setCategory(category);
+                    queDao.problem();
+                    System.out.println("Success");
                 }
                 else if (check.equals("3")){
                     System.out.println(fileDao.readToFile("QuestionBank.dat"));
                 }
 
                 else if (check.equals("4")){//tinh nang tao bai kiem tra
-                    conDao.contest();
+                    conDao.contest(info.coachName);
                     System.out.println("Generate new contest successfully");
                 }
                 else if (check.equals("5")){
@@ -137,4 +126,4 @@ public class Main {
             }
         }
     }
-}
+

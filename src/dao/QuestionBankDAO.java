@@ -7,13 +7,16 @@ package dao;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
+import model.Profile;
 import model.QuestionBank;
 /**
  *
  * @author Phan Duc Hieu
  */
 public class QuestionBankDAO {
-    public String Problem() {
+    public void problem() {
+        FileDAO fileDao = new FileDAO();
+        Profile pro = new Profile();
         Scanner input = new Scanner(System.in);
         System.out.println("ADD NEW PROBLEM");
         
@@ -25,7 +28,7 @@ public class QuestionBankDAO {
         int month = cal.get(Calendar.MONTH)+1;
         int year = cal.get(Calendar.YEAR);
         String date = day + "/" + month + "/" + year;
-        
+        System.out.println("Id: " + id);
         System.out.print("Problem name: ");
         String name = input.nextLine();
         
@@ -40,11 +43,9 @@ public class QuestionBankDAO {
         
         System.out.println("Category: ");
         String category = input.nextLine();
-        
-        System.out.println("Author: ");
-        String author = input.nextLine();
+        String author = pro.coachName;
         
         QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
-        return newQuestion.toString();
+        fileDao.AddToFile("QuestionBank.dat", newQuestion.toString());
     }  
 }
