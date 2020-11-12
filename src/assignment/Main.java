@@ -7,6 +7,7 @@
 //thang da o day
 
 package assignment;
+import dao.CheckValiadate;
 import dao.ContestDAO;
 import dao.FileDAO;
 import dao.ProfileDAO;
@@ -41,6 +42,7 @@ public class Main {
         QuestionBank qs = new QuestionBank();
         QuestionBankDAO queDao = new QuestionBankDAO();
         ContestDAO conDao = new ContestDAO();
+        CheckValiadate checkValid = new CheckValiadate();
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
        
@@ -76,6 +78,10 @@ public class Main {
                         //cac truong hop khac cung tuong tu
                         System.out.println("Input new password: ");
                         String newPassword = sn.nextLine();
+                        while(!checkValid.checkEmptyString(newPassword)){
+                            System.out.println("New password is not valid. Please input again: ");
+                            newPassword = sn.nextLine();
+                        }
                         info.setPassword(newPassword);
                         fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                         System.out.println("Change successfully");
@@ -87,6 +93,10 @@ public class Main {
                     else if (check1.equals("3")){
                         System.out.println("Input new name: ");
                         String newName = sn.nextLine();
+                        while(!checkValid.checkEmptyString(newName)){
+                            System.out.println("New name is not valid. Please input again: ");
+                            newName = sn.nextLine();
+                        }
                         info.setCoachName(newName);
                         fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
@@ -94,6 +104,10 @@ public class Main {
                     else if (check1.equals("4")){
                         System.out.println("Input new email: ");
                         String newEmail = sn.nextLine();
+                        while(!checkValid.checkEmptyString(newEmail)){
+                            System.out.println("New Email is not valid. Please input again: ");
+                            newEmail = sn.nextLine();
+                        }
                         info.setEmail(newEmail);
                         fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
@@ -101,13 +115,17 @@ public class Main {
                     else if (check1.equals("5")){
                         System.out.println("Input new mobile phone: ");
                         String newMobilePhone = sn.nextLine();
+                        while(!checkValid.checkEmptyString(newMobilePhone)){
+                            System.out.println("New mobile phone is not valid. Please input again: ");
+                            newMobilePhone = sn.nextLine();
+                        }
                         info.setMobilePhone(newMobilePhone);
                         fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
                     }
                 }
                 else if (check.equals("2")){
-                    queDao.problem();
+                    queDao.problem(info.coachName);
                     System.out.println("Success");
                 }
                 else if (check.equals("3")){

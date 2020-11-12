@@ -10,14 +10,13 @@ package dao;
  * @author LOVE
  */
 public class CheckValiadate {
-     public boolean checkScore(double n) {
-        
-    if(0<=n && n<=10) {
-        return true;
-    } else {
-        return false;
+    public boolean checkScore(double n) {
+        if(0<=n && n<=10) {
+            return true;
+        } else {
+            return false;
+        }
     }
- }
     public boolean checkEmptyString (String e){
     
          if ("".equals(e)) {
@@ -29,10 +28,9 @@ public class CheckValiadate {
     }
     public boolean checkTypeQuestion (String q){
         if ( "sql".equals(q) || "cea".equals(q) ||"csi".equals(q) || "prf".equals(q) || "mae".equals(q)) {
-        return true;
-    } else {
-        return false;
+            return true;
+        } else {
+            return false;
+        }
     }
-    }
-    
 }

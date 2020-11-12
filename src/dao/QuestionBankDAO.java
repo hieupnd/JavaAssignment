@@ -14,9 +14,10 @@ import model.QuestionBank;
  * @author Phan Duc Hieu
  */
 public class QuestionBankDAO {
-    public void problem() {
+    public void problem(String coachName) {
         FileDAO fileDao = new FileDAO();
         Profile pro = new Profile();
+        CheckValiadate checkValid = new CheckValiadate();
         Scanner input = new Scanner(System.in);
         System.out.println("ADD NEW PROBLEM");
         
@@ -31,20 +32,38 @@ public class QuestionBankDAO {
         System.out.println("Id: " + id);
         System.out.print("Problem name: ");
         String name = input.nextLine();
-        
+        while(!checkValid.checkEmptyString(name)){
+            System.out.println("Name is not valid. Please input again: ");
+            name = input.nextLine();
+        }
         System.out.println("Short description: ");
         String shortDescription = input.nextLine();
-        
+        while(!checkValid.checkEmptyString(shortDescription)){
+            System.out.println("Short description is not valid. Please input again: ");
+            shortDescription = input.nextLine();
+        }
         System.out.println("Full decription: ");
         String fullDescription = input.nextLine();
+        while(!checkValid.checkEmptyString(fullDescription)){
+            System.out.println("Full description is not valid. Please input again: ");
+            fullDescription = input.nextLine();
+        }
+        System.out.print("Mark weight(>=0 and <=10): ");
         
-        System.out.print("Mark weight: ");
         int markWeight = Integer.parseInt(input.nextLine());
         
-        System.out.println("Category: ");
+        while(!checkValid.checkEmptyString((String.valueOf(markWeight))) || !checkValid.checkScore(markWeight)){
+            System.out.println("Mark weight is not valid. Please input again: ");
+            markWeight = Integer.parseInt(input.nextLine());
+        }
+        System.out.println("Category (sql, cea, csi, prf, mae) : ");
         String category = input.nextLine();
-        String author = pro.coachName;
+        while(!checkValid.checkEmptyString(category) || !checkValid.checkTypeQuestion(category)){
+            System.out.println("Category is not valid. Please input again: ");
+            category = input.nextLine();
+        }
         
+        String author = coachName;
         QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
         fileDao.AddToFile("QuestionBank.dat", newQuestion.toString());
     }  
