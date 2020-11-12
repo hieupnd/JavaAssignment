@@ -114,7 +114,6 @@ public class Main {
                 }
                 else if (check.equals("2")){//tinh nang them cau hoi vao question bank
                     
-       
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
                 
@@ -137,5 +136,4 @@ public class Main {
             }
         }
     }
-    
 }

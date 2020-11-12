@@ -107,7 +107,7 @@ public class QuestionBank {
 
     @Override
     public String toString() {
-        return "QuestionBank{" + "problemId=" + problemId + ", generateDate=" + generateDate + ", problemName=" + problemName + ", shortDescription=" + shortDescription + ", fullDescription=" + fullDescription + ", markWeight=" + markWeight + ", category=" + category + ", author=" + author + '}';
+        return "QuestionBank{" + "problemId= " + problemId + ", generateDate= " + generateDate + ", problemName= " + problemName + ", shortDescription= " + shortDescription + ", fullDescription= " + fullDescription + ", markWeight= " + markWeight + ", category= " + category + ", author= " + author + '}';
     }
 
     void updateProblem() {
@@ -116,43 +116,5 @@ public class QuestionBank {
 
     void addProblem() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
-
-class addProblem{
-    void addProblem() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("ADD NEW PROBLEM");
-        
-        Random rand = new Random();
-        String id = "ID" + rand.nextInt(100000);
-        
-        Calendar cal = Calendar.getInstance();
-        int day = cal.get(Calendar.DATE);
-        int month = cal.get(Calendar.MONTH);
-        int year = cal.get(Calendar.YEAR);
-        String date = month + " " + day + " " + year;
-        
-        System.out.print("Problem name: ");
-        String name = input.nextLine();
-        
-        System.out.println("Short description: ");
-        String shortDescription = input.nextLine();
-        
-        System.out.println("Full decription: ");
-        String fullDescription = input.nextLine();
-        
-        System.out.print("Mark weight: ");
-        int markWeight = Integer.parseInt(input.nextLine());
-        
-        System.out.println("Category: ");
-        String category = input.nextLine();
-        
-        System.out.println("Author: ");
-        String author = input.nextLine();
-        
-        QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
-        
-        
     }
 }
