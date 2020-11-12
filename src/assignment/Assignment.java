@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//hello
-//thang da o day
 package assignment;
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,7 +17,6 @@ public class Assignment {
      */
     public static void main(String[] args){
         // TODO code application logic here
-        // chi da o day
         Scanner sn = new Scanner(System.in);
         System.out.println("Username: ");
         String username = sn.nextLine();
@@ -89,7 +86,7 @@ public class Assignment {
                     qs.updateProblem();
                     System.out.println("Input Contest 's ID: ");
                     String id = sn.next();
-                    System.out.println("Input Date: ");
+                    System.out.println("Input Date: ")         ;
                     String date = sn.next();
                     System.out.println("Input Author: ");
                     String aut = sn.next();
