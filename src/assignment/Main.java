@@ -115,7 +115,23 @@ public class Main {
                     
                 }
                 else if (check.equals("2")){//tinh nang them cau hoi vao question bank
-                    
+                    addProblem ap = new addProblem();
+                    ap.addProblem();
+                        System.out.println("Input problem 's ID: ");
+                        String id = sn.nextLine();
+                        pro.setCoachId(id);
+                        System.out.println("Input Name: ");
+                        String name = sn.nextLine();
+                        pro.setCoachName(name);
+                        System.out.println("Input short description: ");
+                        String des = sn.nextLine();
+                        System.out.println("Input Markweight: ");
+                        String markWeight = sn.nextLine();
+                        System.out.println("Input Category: ");
+                        String category = sn.nextLine();
+                        System.out.println("Input Author: ");
+                        String author = sn.nextLine();
+                        pro.setUsername(author);
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
                 
@@ -124,7 +140,14 @@ public class Main {
                 
                 }
                 else if (check.equals("5")){//tinh nang tao bai kiem tra
-                
+                    System.out.println("Input Contest 's ID: ");
+                    String id = sn.nextLine();
+                    System.out.println("Input Date: ");
+                    String date = sn.nextLine();
+                    System.out.println("Input Author: ");
+                    String aut = sn.nextLine();
+                    System.out.println("Input Total mark: ");
+                    String total = sn.nextLine();
                 }
                 else if (check.equals("6")){//tinh nang in bai kiem tra dua vao ma de 
                 
