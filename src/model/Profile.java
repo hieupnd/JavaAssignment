@@ -83,9 +83,13 @@ public class Profile {
         return coachId;
     }
 
+    public void setCoachId(String coachId) {
+        this.coachId = coachId;
+    }
+
     public void setCoachId() {
-        Random rd = new Random(999999);
-        coachId= "MSD" + rd;
+        Random rd = new Random();
+        coachId= "MSD" + rd.nextInt(999999);
     }
 
     public String getCoachName() {
@@ -113,7 +117,7 @@ public class Profile {
     }
      @Override
     public String toString() {
-        return "Profile{" + "username=" + username + ", password=" + password + ", coachId=" + coachId + ", coachName=" + coachName + ", email=" + email + ", mobilePhone=" + mobilePhone + '}';
+        return username + ", " + password + ", " + coachId + ", " + coachName + ", " + email + ", " + mobilePhone;
     }
     
     public boolean checkUserName() {

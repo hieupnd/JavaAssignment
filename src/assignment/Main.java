@@ -61,6 +61,8 @@ public class Main {
                 String check = sn.nextLine();
                 //tao cac option cho nguoi dung
                 if (check.equals("1")){// tinh nang thay doi thong tin profile
+                    String oldStr = proDAO.oldString(info);
+                    System.out.println(oldStr);
                     System.out.println("Press 1 to change password");
                     System.out.println("Press 2 to generate new id");
                     System.out.println("Press 3 to change name");
@@ -75,6 +77,7 @@ public class Main {
                         System.out.println("Input new password: ");
                         String newPassword = sn.nextLine();
                         info.setPassword(newPassword);
+                        fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                         System.out.println("Change successfully");
                     }
                     else if (check1.equals("2")){
@@ -85,18 +88,21 @@ public class Main {
                         System.out.println("Input new name: ");
                         String newName = sn.nextLine();
                         info.setCoachName(newName);
+                        fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
                     }
                     else if (check1.equals("4")){
                         System.out.println("Input new email: ");
                         String newEmail = sn.nextLine();
                         info.setEmail(newEmail);
+                        fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
                     }
                     else if (check1.equals("5")){
                         System.out.println("Input new mobile phone: ");
                         String newMobilePhone = sn.nextLine();
                         info.setMobilePhone(newMobilePhone);
+                        fileDao.modifyFile("Profile.dat", oldStr, info.toString());
                         System.out.println("Change successfully");
                     }
                 }
