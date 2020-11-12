@@ -8,6 +8,7 @@
 
 package assignment;
 import dao.FileDAO;
+import model.*;
 import java.io.IOException;
 import java.util.Scanner;
 /**
@@ -37,7 +38,7 @@ public class Main {
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
         dao.modifyFile("Profile.dat", "1", "g");
-        
+        dao.AddToFile("QuestionBank.dat", "pham thai ha");
         System.out.println(dao.readToFile("Profile.dat"));
         System.out.println(dao.readToFile("Questionbank.dat"));
         if (info.checkUserName()){
@@ -71,7 +72,7 @@ public class Main {
                     }
                     else if (check.equals("2")){//tinh nang them cau hoi vao question bank
                     
-                    qs.addProblem();
+                    
                     System.out.println("Input problem 's ID: ");
                     String id = sn.nextLine();
                     System.out.println("Input Date: ");
@@ -89,7 +90,6 @@ public class Main {
                 
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
-                    qs.updateProblem();
                     System.out.println("Input Contest 's ID: ");
                     String id = sn.next();
                     System.out.println("Input Date: ");
@@ -113,8 +113,8 @@ public class Main {
                     
                 }
                 else if (check.equals("2")){//tinh nang them cau hoi vao question bank
-                    addProblem ap = new addProblem();
-                    ap.addProblem();
+                    
+       
                 }
                 else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
                 

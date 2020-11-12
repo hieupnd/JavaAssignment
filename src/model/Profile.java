@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment;
+package model;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @author Phan Duc Hieu
  */
-class Profile {
+public class Profile {
     public String username;
     public String password;
     public String coachId;
@@ -114,28 +114,28 @@ class Profile {
         return "Profile{" + "username=" + username + ", password=" + password + ", coachId=" + coachId + ", coachName=" + coachName + ", email=" + email + ", mobilePhone=" + mobilePhone + '}';
     }
     
-    boolean checkUserName() {
+    public boolean checkUserName() {
         return checkUsername;
     }
 
-    boolean checkPassword() {
+    public boolean checkPassword() {
         return checkPassword;
     }
 
    
-    void generateNewId() {
+    public void generateNewId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void changeName() {
+    public void changeName() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void changeEmail() {
+    public void changeEmail() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void changeMobilePhone() {
+    public void changeMobilePhone() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

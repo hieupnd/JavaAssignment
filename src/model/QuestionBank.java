@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment;
+package model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  * @author Phan Duc Hieu
  */
-class QuestionBank {
+public class QuestionBank {
     public String problemId;
     public String generateDate;
     public String problemName;
@@ -153,24 +153,6 @@ class addProblem{
         
         QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
         
-        try{
-            FileReader fr = new FileReader("Questionbank.dat");
-            BufferedReader br = new BufferedReader(fr);
-            
-            String myString = "";
-            String str;
-            while((str = br.readLine()) != null){
-                myString = myString + str + "\n";
-            }
-            br.close();
-            
-            PrintWriter pw = new PrintWriter("Questionbank.dat");
-            myString = myString + newQuestion;
-            pw.println(myString);
-            pw.close();           
-        } 
-        catch(IOException ex) {
-            System.out.println("ERROR!");            
-        }
+        
     }
 }

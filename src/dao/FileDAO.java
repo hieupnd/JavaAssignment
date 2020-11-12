@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -95,5 +96,26 @@ public class FileDAO {
             System.out.println("There was a problem reading the file");
         }
         return fileContent;
+    }
+    public void AddToFile(String filename, String content){
+        try{
+            FileReader fr = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fr);
+            
+            String myString = "";
+            String str;
+            while((str = br.readLine()) != null){
+                myString = myString + str + "\n";
+            }
+            br.close();
+            
+            PrintWriter pw = new PrintWriter(filename);
+            myString = myString + content;
+            pw.println(myString);
+            pw.close();           
+        } 
+        catch(IOException ex) {
+            System.out.println("ERROR!");            
+        }
     }
 }
