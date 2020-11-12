@@ -3,20 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//hello
+//thang da o day
+
 package assignment;
+import dao.FileDAO;
 import java.io.IOException;
 import java.util.Scanner;
 /**
  *
  * @author Phan Duc Hieu
  */
-public class Assignment {
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args){
         // TODO code application logic here
+        // chi da o day
         Scanner sn = new Scanner(System.in);
         System.out.println("Username: ");
         String username = sn.nextLine();
@@ -27,13 +32,14 @@ public class Assignment {
         Profile info = new Profile(username, password);
         //tao mot doi tuong rong de dung cac ham trong Profile.java
         Profile pro = new Profile();
+        FileDAO dao = new FileDAO();
         QuestionBank qs = new QuestionBank();
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
-        pro.modifyFile("Profile.dat", "g", "1");
+        dao.modifyFile("Profile.dat", "1", "g");
         
-        System.out.println(pro.readToFile("Profile.dat"));
-        
+        System.out.println(dao.readToFile("Profile.dat"));
+        System.out.println(dao.readToFile("Questionbank.dat"));
         if (info.checkUserName()){
             if (info.checkPassword()){
                 System.out.println("Press 1 to change profile information");
@@ -86,7 +92,7 @@ public class Assignment {
                     qs.updateProblem();
                     System.out.println("Input Contest 's ID: ");
                     String id = sn.next();
-                    System.out.println("Input Date: ")         ;
+                    System.out.println("Input Date: ");
                     String date = sn.next();
                     System.out.println("Input Author: ");
                     String aut = sn.next();

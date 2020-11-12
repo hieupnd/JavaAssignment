@@ -24,7 +24,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -44,85 +43,7 @@ class Profile {
     
     
    
-    public void modifyFile(String filePath, String oldString, String newString){
-        File fileToBeModified = new File(filePath);
-         
-        String oldContent = "";
-         
-        BufferedReader reader = null;
-         
-        FileWriter writer = null;
-         
-        try
-        {
-            reader = new BufferedReader(new FileReader(fileToBeModified));
-             
-            //Reading all the lines of input text file into oldContent
-             
-            String line = reader.readLine();
-             
-            while (line != null) 
-            {
-                oldContent = oldContent + line + System.lineSeparator();
-                 
-                line = reader.readLine();
-            }
-             
-            //Replacing oldString with newString in the oldContent
-             
-            String newContent = oldContent.replaceAll(oldString, newString);
-             
-            //Rewriting the input text file with newContent
-             
-            writer = new FileWriter(fileToBeModified);
-             
-            writer.write(newContent);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                //Closing the resources
-                 
-                reader.close();
-                 
-                writer.close();
-            } 
-            catch (IOException e) 
-            {
-                e.printStackTrace();
-            }
-        }
-        //System.out.println("done");
-    }
     
-    public String readToFile(String filename) {
-        String fileContent = "";
-
-        try {
-            FileReader file = new FileReader(filename);
-            BufferedReader fileStream = new BufferedReader(file);
-
-            String temp = fileStream.readLine();
-            while (temp != null) {
-                fileContent = fileContent + " " + temp;
-                temp = fileStream.readLine();
-
-            }
-            fileStream.close();
-
-        } catch (FileNotFoundException e) {
-
-            System.out.println("No file was read");
-        } catch (IOException e) {
-            System.out.println("There was a problem reading the file");
-        }
-        return fileContent;
-    }
     
     public Profile(String username, String password) {
         //username va password duoc nhap boi nguoi dung trong main
@@ -162,8 +83,6 @@ class Profile {
     }
 
     public void setCoachId(String coachId) {
-        Random rd = new Random();   
-        coachId = "MSD"+rd.nextInt(9999999);
         this.coachId = coachId;
     }
 

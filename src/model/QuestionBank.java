@@ -107,7 +107,7 @@ class QuestionBank {
 
     @Override
     public String toString() {
-        return "QuestionBank{" + "problemId= " + problemId + ", generateDate= " + generateDate + ", problemName= " + problemName + ", shortDescription= " + shortDescription + ", fullDescription= " + fullDescription + ", markWeight= " + markWeight + ", category= " + category + ", author= " + author + '}';
+        return "QuestionBank{" + "problemId=" + problemId + ", generateDate=" + generateDate + ", problemName=" + problemName + ", shortDescription=" + shortDescription + ", fullDescription=" + fullDescription + ", markWeight=" + markWeight + ", category=" + category + ", author=" + author + '}';
     }
 
     void updateProblem() {
@@ -143,7 +143,7 @@ class addProblem{
         String fullDescription = input.nextLine();
         
         System.out.print("Mark weight: ");
-        double markWeight = Double.parseDouble(input.nextLine());
+        int markWeight = Integer.parseInt(input.nextLine());
         
         System.out.println("Category: ");
         String category = input.nextLine();
