@@ -19,7 +19,7 @@ import model.Profile;
  * @author Phan Duc Hieu
  */
 public class ContestDAO {
-    void contest(){
+    public void contest(){
         Random rand = new Random();
         Profile pro = new Profile();
         String contestId = "ID" + rand.nextInt(100000);

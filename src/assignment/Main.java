@@ -7,6 +7,7 @@
 //thang da o day
 
 package assignment;
+import dao.ContestDAO;
 import dao.FileDAO;
 import dao.ProfileDAO;
 import model.*;
@@ -37,128 +38,103 @@ public class Main {
         FileDAO fileDao = new FileDAO();
         ProfileDAO proDAO = new ProfileDAO();
         QuestionBank qs = new QuestionBank();
+        ContestDAO conDao = new ContestDAO();
         //gọi thử hàm sửa nội dung file trong class Profile
         //Thay đổi toàn bộ ký tự g trong file thành số 1
        
-        fileDao.AddToFile("QuestionBank.dat", "pham thai ha");
-        System.out.println(fileDao.readToFile("Profile.dat"));
-        System.out.println(fileDao.readToFile("Questionbank.dat"));
+        //fileDao.AddToFile("QuestionBank.dat", "pham thai ha");
+        
+        //System.out.println(fileDao.readToFile("Profile.dat"));
+        //System.out.println(fileDao.readToFile("Questionbank.dat"));
         
         if (proDAO.checkInfor(info)){
                 System.out.println("Press 1 to change profile information");
                 System.out.println("Press 2 to add new problem");
-                System.out.println("Press 3 to Update information");
-                System.out.println("Press 4 to View all problems");
-                System.out.println("Press 5 to generate contest");
-                System.out.println("Press 6 to print info of a contest by ContestId");
-                System.out.println("Press 7 to sort problem");
+                System.out.println("Press 3 to View all problems");
+                System.out.println("Press 4 to generate contest");
+                System.out.println("Press 5 to print info of a contest by ContestId");
+                System.out.println("Press 6 to sort problem");
                 //System.out.println("Press 8 to save");
                 String check = sn.nextLine();
                 //tao cac option cho nguoi dung
                 if (check.equals("1")){// tinh nang thay doi thong tin profile
-                    System.out.println("Press 1 to change username");
-                    System.out.println("Press 2 to change password");
-                    System.out.println("Press 3 to generate new id");
-                    System.out.println("Press 4 to change name");
-                    System.out.println("Press 5 to change email");
-                    System.out.println("Press 6 to change mobile phone");
+                    System.out.println("Press 1 to change password");
+                    System.out.println("Press 2 to generate new id");
+                    System.out.println("Press 3 to change name");
+                    System.out.println("Press 4 to change email");
+                    System.out.println("Press 5 to change mobile phone");
                     String check1 = sn.nextLine();
                     //tu tao bien va viet method de lam, dau vao duoc nhap boi nguoi dung
                     if(check1.equals("1")){
                         //tao ra cac bien moi co gia tri bang gia tri nguoi dung nhap vao
                         //de luu tru new username
                         //cac truong hop khac cung tuong tu
-                        String newUsername = sn.nextLine();
-                        pro.setUsername(newUsername);
-                        
+                        System.out.println("Input new password: ");
+                        String newPassword = sn.nextLine();
+                        info.setPassword(newPassword);
+                        System.out.println("Change successfully");
                     }
-                    else if (check.equals("2")){//tinh nang them cau hoi vao question bank
-                    
-                    
-                    System.out.println("Input problem 's ID: ");
-                    String id = sn.nextLine();
-                    System.out.println("Input Date: ");
-                    String date = sn.nextLine();
-                    System.out.println("Input Name: ");
-                    String name = sn.nextLine();
-                    System.out.println("Input short description: ");
-                    String des = sn.nextLine();
-                    System.out.println("Input Markweight: ");
-                    String markw = sn.nextLine();
-                    System.out.println("Input Category: ");
-                    String cate = sn.nextLine();
-                    System.out.println("Input Author: ");
-                    String aut = sn.nextLine();
-                
-                }
-                else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
-                    System.out.println("Input Contest 's ID: ");
-                    String id = sn.next();
-                    System.out.println("Input Date: ");
-                    String date = sn.next();
-                    System.out.println("Input Author: ");
-                    String aut = sn.next();
-                    System.out.println("Input Total mark: ");
-                    String total = sn.next();
-                    
-                }
+                    else if (check.equals("2")){
+                        info.setCoachId();
+                        System.out.println("New id: " + info.getCoachId());
+                    }
+                    else if (check.equals("3")){
+                        System.out.println("Input new name: ");
+                        String newName = sn.nextLine();
+                        info.setCoachName(newName);
+                        System.out.println("Change successfully");
+                    }
                     else if (check.equals("4")){
-                        pro.changeName();
+                        System.out.println("Input new email: ");
+                        String newEmail = sn.nextLine();
+                        info.setEmail(newEmail);
+                        System.out.println("Change successfully");
                     }
                     else if (check.equals("5")){
-                        pro.changeEmail();
+                        System.out.println("Input new mobile phone: ");
+                        String newMobilePhone = sn.nextLine();
+                        info.setMobilePhone(newMobilePhone);
+                        System.out.println("Change successfully");
                     }
-                    else if (check.equals("6")){ 
-                        pro.changeMobilePhone();
-                    }
-                    
-                    
-                }
-                else if (check.equals("2")){//tinh nang them cau hoi vao question bank
-                    addProblem ap = new addProblem();
-                    ap.addProblem();
-                        System.out.println("Input problem 's ID: ");
-                        String id = sn.nextLine();
-                        pro.setCoachId(id);
-                        System.out.println("Input Name: ");
+                else if (check.equals("2")){
+                        qs.setProblemId();
+                        System.out.println("id of problem:" + qs.getProblemId());
+                        System.out.println("Input Name of problem: ");
                         String name = sn.nextLine();
-                        pro.setCoachName(name);
+                        qs.setProblemName(name);
                         System.out.println("Input short description: ");
                         String des = sn.nextLine();
+                        qs.setShortDescription(des);
+                        System.out.println("Input full description: ");
+                        String fullDes = sn.nextLine();
+                        qs.setFullDescription(fullDes);
                         System.out.println("Input Markweight: ");
-                        String markWeight = sn.nextLine();
+                        double markWeight = sn.nextDouble();
+                        qs.setMarkWeight(markWeight);
                         System.out.println("Input Category: ");
                         String category = sn.nextLine();
-                        System.out.println("Input Author: ");
-                        String author = sn.nextLine();
-                        pro.setUsername(author);
+                        qs.setCategory(category);
                 }
-                else if (check.equals("3")){//tinh nang cap nhat thong tin cau hoi
-                
+                else if (check.equals("3")){
+                    System.out.println(fileDao.readToFile("QuestionBank.dat"));
                 }
-                else if (check.equals("4")){//tinh nang xem toan bo cau hoi co trong question bank
-                
+
+                else if (check.equals("4")){//tinh nang tao bai kiem tra
+                    conDao.contest();
+                    System.out.println("Generate new contest successfully");
                 }
-                else if (check.equals("5")){//tinh nang tao bai kiem tra
-                    System.out.println("Input Contest 's ID: ");
-                    String id = sn.nextLine();
-                    System.out.println("Input Date: ");
-                    String date = sn.nextLine();
-                    System.out.println("Input Author: ");
-                    String aut = sn.nextLine();
-                    System.out.println("Input Total mark: ");
-                    String total = sn.nextLine();
+                else if (check.equals("5")){
+                    System.out.println("Input contest id: ");
+                        
                 }
-                else if (check.equals("6")){//tinh nang in bai kiem tra dua vao ma de 
-                
-                }
-                else if (check.equals("7")){//tinh nang sap xep cau hoi theo thu tu giam dan dua tren ten cau hoi
-                
+                else if (check.equals("6")){
+                    
                 }
                 //else if (check.equals("8")){
                 
                 //}
             
+            }
         }
     }
 }

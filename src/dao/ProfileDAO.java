@@ -29,7 +29,7 @@ public class ProfileDAO {
         for (String line : seperateLines()) {
             String[] parameter = line.split(", ");
             if (parameter[0].equals(info.getUsername()) && parameter[1].equals(info.getPassword())) {
-                info.setCoachId(parameter[2]);
+                info.setCoachId();
                 info.setCoachName(parameter[3]);
                 info.setEmail(parameter[4]);
                 info.setMobilePhone(parameter[5]);

@@ -83,10 +83,9 @@ public class Profile {
         return coachId;
     }
 
-    public void setCoachId(String coachId) {
+    public void setCoachId() {
         Random rd = new Random(999999);
         coachId= "MSD" + rd;
-        this.coachId = coachId;
     }
 
     public String getCoachName() {
