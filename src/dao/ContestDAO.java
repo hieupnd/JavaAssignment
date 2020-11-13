@@ -67,7 +67,7 @@ public class ContestDAO {
                         st.nextToken(" ");
                         QAuthor = st.nextToken(",");
                     }
-                    questions = questions + "Question " + (i+1) + " (" + id + "," + mark + " point)" + ": " + name + "\nAuthor: " + QAuthor + "\nCategory: " + category + "\n\n" + desc + "\n\n";
+                    questions = questions + "Question " + (i+1) + " (" + id + "," + mark + " point)" + ": " + name + ".\nAuthor: " + QAuthor + ".\nCategory: " + category + ".\n\n" + desc + ".\n\n";
                     i++;
                 }
                 if(i>=5){
@@ -75,7 +75,7 @@ public class ContestDAO {
                 }
             }
             br.close();
-            contest = "Contest Id: " + contestId + "\n" + "Date of creation: " + dateOfCreation + "\n" + "Author: " + author + "\n\n" + questions + "\n------------------------------";
+            contest = "Contest Id: " + contestId + ".\n" + "Date of creation: " + dateOfCreation + ".\n" + "Author: " + author + ".\n\n" + questions + ".\n------------------------------";
             System.out.println(contest);
         } 
         catch(IOException ex) {
@@ -89,5 +89,23 @@ public class ContestDAO {
             fd.AddToFile("Contest_TimeStamp.txt", contest);
         }
         
+    }
+    public void findContest(String contestId){
+        FileDAO fileDao = new FileDAO();
+        String content = fileDao.readToFile("Contest_TimeStamp.txt");
+        System.out.println(content);
+        if (content.contains(contestId)){
+            char j;
+            for(int i = content.indexOf(contestId); i<=content.indexOf("------------------------------");i++){
+                j=content.charAt(i);
+                if (j == '.'){
+                    System.out.println(j);
+                    System.out.println("\n");
+                }
+                else{
+                    System.out.println(j);
+                }
+            }
+        }
     }
 }

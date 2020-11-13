@@ -49,7 +49,15 @@ public class Main {
         
         //System.out.println(fileDao.readToFile("Profile.dat"));
         //System.out.println(fileDao.readToFile("Questionbank.dat"));
-        
+        while(!proDAO.checkInfor(info)){
+            System.out.println("Wrong username or password. Please input again");
+            System.out.println("Username: ");
+            username = sn.nextLine();
+            info.setUsername(username);
+            System.out.println("Password: ");
+            password = sn.nextLine();
+            info.setPassword(password);
+        }
         if (proDAO.checkInfor(info)){
                 System.out.println("Login succesfully");
                 System.out.println("Press 1 to change profile information");
