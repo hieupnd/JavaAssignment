@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//hello
-//thang da o day
+
 
 package assignment;
 import dao.CheckValiadate;
