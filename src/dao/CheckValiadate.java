@@ -33,4 +33,25 @@ public class CheckValiadate {
             return false;
         }
     }
+    public boolean checkPassword(String password){
+        if (password.length()<8||password.contains("/")||password.contains("!")){
+            return false;
+        }
+        return true;
+    }
+    public boolean checkEmail(String email){
+        if (!email.contains("@.")){
+            return false;
+        }
+        return true;
+    }
+    public boolean checkPhoneNumber(String number){
+        try {
+            int x = Integer.parseInt(number);
+            return true;
+        } catch (Exception e) {
+            
+        }
+        return false;
+    }
 }
