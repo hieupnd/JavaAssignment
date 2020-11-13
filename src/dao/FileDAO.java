@@ -86,7 +86,7 @@ public class FileDAO {
 
             String temp = fileStream.readLine();
             while (temp != null) {
-                fileContent = fileContent + " " + temp;
+                fileContent = fileContent + " " + temp + "\n";
                 temp = fileStream.readLine();
 
             }

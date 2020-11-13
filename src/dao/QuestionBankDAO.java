@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package dao;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
@@ -78,6 +84,33 @@ public class QuestionBankDAO {
         }
         catch(StringIndexOutOfBoundsException e){
             System.out.println("Can not find this Id");
+        }
+    }
+    
+    // Sap xep theo Id
+    public void sortProblemById() throws IOException {
+
+        String[] lines = Files.readAllLines(new File("Questionbank.dat").toPath()).toArray(new String[0]);
+            Arrays.sort(lines);
+
+        FileWriter fw = new FileWriter("Questionbank.dat");
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {            
+            for (String line : lines) {
+                bw.write(line + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR AT sortProblemById");
+        } finally {
+            try {
+                if (bw != null)
+                    bw.close();
+                if (fw != null)
+                    fw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }
