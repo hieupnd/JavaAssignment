@@ -120,7 +120,24 @@ public class FileDAO {
             pw.close();           
         } 
         catch(IOException ex) {
-            System.out.println("ERROR!");            
+            System.out.println("ERROR AT AddToFile");            
         }
+    }
+    public String printFileContent(String filename){
+        String myString = "";
+        try{
+            FileReader fr = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fr);
+            
+            String str;
+            while((str = br.readLine()) != null){
+                myString = myString + str + "\n";
+            }
+            br.close();
+            }
+        catch(IOException ex) {
+            System.out.println("ERROR AT printFileContent");
+        }
+        return myString;
     }
 }

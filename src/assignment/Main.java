@@ -129,7 +129,7 @@ public class Main {
                     System.out.println("Success");
                 }
                 else if (check.equals("3")){
-                    System.out.println(fileDao.readToFile("QuestionBank.dat"));
+                    System.out.println(fileDao.printFileContent("QuestionBank.dat"));
                 }
 
                 else if (check.equals("4")){//tinh nang tao bai kiem tra

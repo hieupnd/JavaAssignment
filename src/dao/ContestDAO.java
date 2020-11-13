@@ -34,8 +34,11 @@ public class ContestDAO {
             BufferedReader br = new BufferedReader(fr);
             
             String id = "";
+            String name = "";
+            String QAuthor = "";
             String desc = "";
             String mark = "";
+            String category = "";
             String questions = "";
             String str;
             int i=0;
@@ -47,7 +50,9 @@ public class ContestDAO {
                         st.nextToken(" ");
                         id = st.nextToken(",");
                         st.nextToken(",");
-                        st.nextToken(",");
+                        st.nextToken("=");
+                        st.nextToken(" ");
+                        name = st.nextToken(",");
                         st.nextToken(",");
                         st.nextToken("=");
                         st.nextToken(" ");
@@ -55,9 +60,14 @@ public class ContestDAO {
                         st.nextToken("=");
                         st.nextToken(" ");
                         mark = st.nextToken(",");
-                        st.nextToken("}");
+                        st.nextToken("=");
+                        st.nextToken(" ");
+                        category = st.nextToken(",");
+                        st.nextToken("=");
+                        st.nextToken(" ");
+                        QAuthor = st.nextToken(",");
                     }
-                    questions = questions + "Question " + (i+1) + " (" + id + "," + mark + " point)" + ": " + desc + "\n";
+                    questions = questions + "Question " + (i+1) + " (" + id + "," + mark + " point)" + ": " + name + "\nAuthor: " + QAuthor + "\nCategory: " + category + "\n\n" + desc + "\n\n";
                     i++;
                 }
                 if(i>=5){
