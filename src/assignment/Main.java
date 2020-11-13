@@ -139,7 +139,7 @@ public class Main {
                 }
                 else if (check.equals("5")){
                     System.out.println("Input contest id: ");
-                        
+                    queDao.findId(sn.nextLine()); 
                 }
                 else if (check.equals("6")){
                     

@@ -140,4 +140,11 @@ public class FileDAO {
         }
         return myString;
     }
+    public String subString(String stringLine, String begin, String end){
+        int beginIndex = stringLine.indexOf(begin);
+        String backstr = stringLine.substring(beginIndex);
+        int endIndex = backstr.indexOf(end);
+        String substr = backstr.substring(0, endIndex);
+        return substr;
+    }
 }

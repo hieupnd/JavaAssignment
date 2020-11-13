@@ -67,4 +67,17 @@ public class QuestionBankDAO {
         QuestionBank newQuestion = new QuestionBank(id,date,name,shortDescription,fullDescription,markWeight,category,author);
         fileDao.AddToFile("QuestionBank.dat", newQuestion.toString());
     }  
+    
+    public void findId(String id){
+        FileDAO fd = new FileDAO();
+        String str = fd.printFileContent("Contest_TimeStamp.txt");
+        try
+        {
+           String contest = fd.subString(str, "Contest Id: " + id, "---"); 
+           System.out.println("\n------------------\n" + contest);
+        }
+        catch(StringIndexOutOfBoundsException e){
+            System.out.println("Can not find this Id");
+        }
+    }
 }
