@@ -88,6 +88,7 @@ public class Main {
                     }
                     else if (check1.equals("2")){
                         info.setCoachId();
+                        fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                         System.out.println("New id: " + info.getCoachId());
                     }
                     else if (check1.equals("3")){
