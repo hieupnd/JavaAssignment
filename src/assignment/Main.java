@@ -146,7 +146,10 @@ public class Main {
                 //else if (check.equals("8")){
                 
                 //}
+                
             
+            }else {
+                System.out.println("Wrong password or username ");
             }
         }
     }
