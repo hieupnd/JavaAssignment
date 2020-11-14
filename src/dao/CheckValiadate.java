@@ -40,7 +40,7 @@ public class CheckValiadate {
         return true;
     }
     public boolean checkEmail(String email){
-        if (!email.contains("@.")){
+        if (!email.contains("@")||!email.contains(".")){
             return false;
         }
         return true;

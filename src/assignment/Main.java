@@ -74,9 +74,8 @@ public class Main {
             while (!check.equals("7")) {
                 //tao cac option cho nguoi dung
                 if (check.equals("1")) {// tinh nang thay doi thong tin profile
-                    String oldStr = proDAO.oldString(info);
+                    System.out.println(proDAO.oldString(info));
                     System.out.println("=====PROFILE=====");
-                    System.out.println(oldStr);
                     System.out.println("Press 1 to change password");
                     System.out.println("Press 2 to generate new id");
                     System.out.println("Press 3 to change name");
@@ -86,14 +85,16 @@ public class Main {
                     String check1 = sn.nextLine();
                     while (!check1.equals("6")) {
                         //tu tao bien va viet method de lam, dau vao duoc nhap boi nguoi dung
+                        String oldStr = proDAO.oldString(info);
                         if (check1.equals("1")) {
                             //tao ra cac bien moi co gia tri bang gia tri nguoi dung nhap vao
                             //de luu tru new username
-                            //cac truong hop khac cung tuong tu
+                            //cac truong hop khac cung tuong 
                             System.out.println("Password must have at least 8 character and no special character");
                             System.out.println("Input new password: ");
                             String newPassword = sn.nextLine();
                             while (!checkValid.checkEmptyString(newPassword) || !checkValid.checkPassword(newPassword)) {
+                                System.out.println("Password must have at least 8 character and no special character");
                                 System.out.println("New password is not valid. Please input again: ");
                                 newPassword = sn.nextLine();
                             }
@@ -112,7 +113,7 @@ public class Main {
                                 newName = sn.nextLine();
                             }
                             info.setCoachName(newName);
-                            fileDao.modifyFile("Profile.dat", oldStr, info.toString());
+                            fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                             System.out.println("Change successfully");
                         } else if (check1.equals("4")) {
                             System.out.println("Input new email: ");
@@ -122,7 +123,7 @@ public class Main {
                                 newEmail = sn.nextLine();
                             }
                             info.setEmail(newEmail);
-                            fileDao.modifyFile("Profile.dat", oldStr, info.toString());
+                            fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                             System.out.println("Change successfully");
                         } else if (check1.equals("5")) {
                             System.out.println("Input new mobile phone: ");
@@ -132,7 +133,7 @@ public class Main {
                                 newMobilePhone = sn.nextLine();
                             }
                             info.setMobilePhone(newMobilePhone);
-                            fileDao.modifyFile("Profile.dat", oldStr, info.toString());
+                            fileDao.modifyFile("Profile.dat", oldStr, proDAO.newString(info));
                             System.out.println("Change successfully");
                         }
                         System.out.println("=====PROFILE=====");
@@ -180,7 +181,7 @@ public class Main {
                         check4 = sn.nextLine();
                         System.out.println("Success");
                     }
-                } else if (check.equals("6")) {
+                } else if (check.equals("6")) {  
                     queDao.sortProblemById();
                     System.out.println("Soft list after sort: ");
                     System.out.println(fileDao.readToFile("Questionbank.dat"));
